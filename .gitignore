@@ -31,3 +31,4 @@ bin/
 .idea
 target
 mysql/bankmodel.mwb.bak
+logs
