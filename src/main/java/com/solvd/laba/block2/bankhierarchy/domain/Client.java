@@ -1,13 +1,14 @@
 package com.solvd.laba.block2.bankhierarchy.domain;
 
 public class Client {
+    private Long id = null;
     private String name;
     private String surname;
     private String phone;
-    private int monthlyIncome;
-    private int totalDebt;
+    private Integer monthlyIncome;
+    private Integer totalDebt;
 
-    public Client(String name, String surname, String phone, int monthlyIncome, int totalDebt){
+    public Client(String name, String surname, String phone, Integer monthlyIncome, Integer totalDebt) {
         this.name = name;
         this.surname = surname;
         this.phone = phone;
@@ -39,19 +40,39 @@ public class Client {
         this.phone = phone;
     }
 
-    public int getMonthlyIncome() {
+    public Integer getMonthlyIncome() {
         return monthlyIncome;
     }
 
-    public void setMonthlyIncome(int monthlyIncome) {
+    public void setMonthlyIncome(Integer monthlyIncome) {
         this.monthlyIncome = monthlyIncome;
     }
 
-    public int getTotalDebt() {
+    public Integer getTotalDebt() {
         return totalDebt;
     }
 
-    public void setTotalDebt(int totalDebt) {
+    public void setTotalDebt(Integer totalDebt) {
         this.totalDebt = totalDebt;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", phone='" + phone + '\'' +
+                ", monthlyIncome=" + monthlyIncome +
+                ", totalDebt=" + totalDebt +
+                '}';
     }
 }

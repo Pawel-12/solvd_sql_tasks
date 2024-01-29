@@ -3,6 +3,7 @@ package com.solvd.laba.block2.bankhierarchy.domain;
 import java.time.LocalDate;
 
 public class Credit {
+    private Long id = null;
     private Long amount;
     private float percentage;
     private Long paidBackAmount;

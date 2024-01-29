@@ -3,6 +3,7 @@ package com.solvd.laba.block2.bankhierarchy.domain;
 import java.time.LocalDate;
 
 public class Transaction {
+    private Long id = null;
     private Account account;
     private Long amount;
     private TransactionType type;

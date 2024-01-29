@@ -3,13 +3,14 @@ package com.solvd.laba.block2.bankhierarchy.domain;
 import java.time.LocalDate;
 
 public class Card {
+    private Long id = null;
     private String cardNumber;
     private Account account;
     private CardType cardType;
-    private boolean isBlocked;
+    private Boolean isBlocked;
     private LocalDate validUntil;
 
-    public Card(String cardNumber, Account account, CardType cardType, boolean isBlocked, LocalDate validUntil){
+    public Card(String cardNumber, Account account, CardType cardType, Boolean isBlocked, LocalDate validUntil) {
         this.cardNumber = cardNumber;
         this.account = account;
         this.cardType = cardType;
@@ -33,11 +34,11 @@ public class Card {
         this.cardType = cardType;
     }
 
-    public boolean isBlocked() {
+    public Boolean isBlocked() {
         return isBlocked;
     }
 
-    public void setBlocked(boolean blocked) {
+    public void setBlocked(Boolean blocked) {
         isBlocked = blocked;
     }
 
@@ -55,5 +56,13 @@ public class Card {
 
     public void setAccount(Account account) {
         this.account = account;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

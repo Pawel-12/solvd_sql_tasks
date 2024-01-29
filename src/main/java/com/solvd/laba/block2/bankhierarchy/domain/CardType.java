@@ -1,13 +1,14 @@
 package com.solvd.laba.block2.bankhierarchy.domain;
 
 public class CardType {
+    private Long id = null;
     private String name;
     private Long limit;
-    private boolean multicurrency;
-    private float exchangeFeeRate;
-    private float creditFeeRate;
+    private Boolean multicurrency;
+    private Float exchangeFeeRate;
+    private Float creditFeeRate;
 
-    public CardType(String name, Long limit, boolean multicurrency, float exchangeFeeRate, float creditFeeRate){
+    public CardType(String name, Long limit, Boolean multicurrency, Float exchangeFeeRate, Float creditFeeRate) {
         this.name = name;
         this.limit = limit;
         this.multicurrency = multicurrency;
@@ -31,27 +32,47 @@ public class CardType {
         this.limit = limit;
     }
 
-    public boolean isMulticurrency() {
+    public Boolean isMulticurrency() {
         return multicurrency;
     }
 
-    public void setMulticurrency(boolean multicurrency) {
+    public void setMulticurrency(Boolean multicurrency) {
         this.multicurrency = multicurrency;
     }
 
-    public float getExchangeFeeRate() {
+    public Float getExchangeFeeRate() {
         return exchangeFeeRate;
     }
 
-    public void setExchangeFeeRate(float exchangeFeeRate) {
+    public void setExchangeFeeRate(Float exchangeFeeRate) {
         this.exchangeFeeRate = exchangeFeeRate;
     }
 
-    public float getCreditFeeRate() {
+    public Float getCreditFeeRate() {
         return creditFeeRate;
     }
 
-    public void setCreditFeeRate(float creditFeeRate) {
+    public void setCreditFeeRate(Float creditFeeRate) {
         this.creditFeeRate = creditFeeRate;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "CardType{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", limit=" + limit +
+                ", multicurrency=" + multicurrency +
+                ", exchangeFeeRate=" + exchangeFeeRate +
+                ", creditFeeRate=" + creditFeeRate +
+                '}';
     }
 }

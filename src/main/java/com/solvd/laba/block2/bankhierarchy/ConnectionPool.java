@@ -1,18 +1,40 @@
 package com.solvd.laba.block2.bankhierarchy;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 import static com.solvd.laba.block2.bankhierarchy.Main.LOGGER;
 
 public class ConnectionPool {
+    private final static String DRIVER;
+    private final static String URL;
+    private final static String USER;
+    private final static String PASSWORD;
     private volatile static ConnectionPool thisPool = null;
     private volatile BlockingQueue<Connection> activeConnections = new LinkedBlockingQueue<>();
     private volatile BlockingQueue<Connection> idleConnections = new LinkedBlockingQueue<>();
     private static int size;
+
+    static {
+        Properties databaseProps = new Properties();
+        try {
+            databaseProps.load((new FileInputStream("src/main/resources/database.properties")));
+
+            DRIVER = databaseProps.getProperty("driver");
+            URL = databaseProps.getProperty("url") + '/' + databaseProps.getProperty("database");
+            USER = databaseProps.getProperty("user");
+            PASSWORD = databaseProps.getProperty("password");
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     private ConnectionPool(int size) {
         ConnectionPool.size = size;
@@ -30,7 +52,7 @@ public class ConnectionPool {
         return thisPool;
     }
 
-    public synchronized Connection getConnection() throws ClassNotFoundException, SQLException {
+    public synchronized Connection getConnection() {
         if (activeConnections.size() < size) {
             if (!idleConnections.isEmpty()) {
                 try {
@@ -42,8 +64,17 @@ public class ConnectionPool {
                     throw new RuntimeException(e);
                 }
             } else {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection temp = DriverManager.getConnection("127.0.0.1:3306","root","root");
+                try {
+                    Class.forName(DRIVER);
+                } catch (ClassNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
+                Connection temp = null;
+                try {
+                    temp = DriverManager.getConnection(URL, USER, PASSWORD);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
                 activeConnections.add(temp);
                 LOGGER.info("New connection " + temp + " created\n");
                 return temp;

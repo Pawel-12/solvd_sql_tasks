@@ -1,6 +1,7 @@
 package com.solvd.laba.block2.bankhierarchy.domain;
 
 public class CreditRequest {
+    private Long id = null;
     private Account account;
     private CreditRequestStatus status;
     private Credit credit;

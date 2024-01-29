@@ -3,6 +3,7 @@ package com.solvd.laba.block2.bankhierarchy.domain;
 import java.time.LocalDate;
 
 public class Investment {
+    private Long id = null;
     private Long amount;
     private float percentage;
     private LocalDate startDate;

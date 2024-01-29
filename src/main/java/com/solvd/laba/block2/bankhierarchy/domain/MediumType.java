@@ -1,6 +1,7 @@
 package com.solvd.laba.block2.bankhierarchy.domain;
 
 public class MediumType {
+    private Long id = null;
     private String name;
 
     public MediumType(String name) {

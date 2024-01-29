@@ -1,6 +1,7 @@
 package com.solvd.laba.block2.bankhierarchy.domain;
 
 public class TransactionPriority {
+    private Long id = null;
     private String name;
     private Integer priority;
 
