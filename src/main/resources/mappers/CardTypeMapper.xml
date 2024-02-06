@@ -3,7 +3,8 @@
 
 <mapper namespace="com.solvd.laba.block2.bankhierarchy.persistance.CardTypeDao">
 
-    <insert id="create" keyProperty="id" keyColumn="id" useGeneratedKeys="true">
+    <insert id="create" keyProperty="id" keyColumn="id" useGeneratedKeys="true"
+            parameterType="com.solvd.laba.block2.bankhierarchy.domain.CardType">
         INSERT INTO CardType(name,limit,multicurrency,exchangeFeeRate,creditFeeRate)
         VALUES (#{name}, #{limit}, #{multicurrency}, #{exchangeFeeRate}, #{creditFeeRate})
     </insert>
@@ -16,10 +17,10 @@
         SELECT * FROM CardType
     </select>
 
-    <update id="update">
+    <update id="updateById">
         UPDATE CardType SET
-        name = #{name}, limit = #{limit}, multicurrency = #{multicurrency},
-        exchangeFeeRate = #{exchangeFeeRate}, creditFeeRate = #{creditFeeRate} WHERE idCardType = #{id}
+        name = #{data.name}, limit = #{data.limit}, multicurrency = #{data.multicurrency},
+        exchangeFeeRate = #{data.exchangeFeeRate}, creditFeeRate = #{data.creditFeeRate} WHERE idCardType = #{id}
     </update>
 
     <delete id="delete">

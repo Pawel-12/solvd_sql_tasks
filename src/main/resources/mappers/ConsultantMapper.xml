@@ -3,7 +3,8 @@
 
 <mapper namespace="com.solvd.laba.block2.bankhierarchy.persistance.ConsultantsDao">
 
-    <insert id="create" keyProperty="id" keyColumn="id" useGeneratedKeys="true">
+    <insert id="create" keyProperty="id" keyColumn="id" useGeneratedKeys="true"
+            parameterType="com.solvd.laba.block2.bankhierarchy.domain.Consultant">
         INSERT INTO Consultants(name, surname, phone)
         VALUES (#{name}, #{surname}, #{phone})
     </insert>
@@ -16,9 +17,9 @@
         SELECT * FROM Consultants
     </select>
 
-    <update id="update">
+    <update id="updateById">
         UPDATE Consultants SET
-        name = #{name}, surname = #{surname}, phone = #{phone},
+        name = #{data.name}, surname = #{data.surname}, phone = #{data.phone},
         WHERE idConsultant = #{id}
     </update>
 

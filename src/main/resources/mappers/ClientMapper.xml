@@ -18,7 +18,7 @@
     </select>
 
     <update id="updateById">
-        UPDATE Clients(name, surname, phone, monthlyIncome, totalDebt) SET name = #{data.name}, surname =
+        UPDATE Clients SET name = #{data.name}, surname =
         #{data.surname}, phone = #{data.phone}, monthlyIncome = #{data.monthlyIncome}, totalDebt = #{data.totalDebt}
         WHERE idClients = #{id}
     </update>

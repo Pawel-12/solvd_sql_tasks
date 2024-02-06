@@ -31,44 +31,44 @@ public class Main {
                 = ClientsHasConsultantsServiceMyBatis.getInstance(ClientsHasConsultantsMyBatis.INSTANCE);
 
 
-        LOGGER.info("clientsToConsultants : \n");
+        LOGGER.info("\n\nclientsToConsultants : ");
         for (var ct : clientsHasConsultantsService.getAll())
             LOGGER.info(ct);
 
 
-        LOGGER.info("CardTypes : \n");
+        LOGGER.info("\n\nCardTypes : ");
         for (var ct : cardTypeService.getAll())
             LOGGER.info(ct);
 
-        LOGGER.info("Clients : \n");
+        LOGGER.info("\n\nClients : ");
         for (var cl : clientsService.getAll()) {
             LOGGER.info(cl);
         }
 
-        LOGGER.info("Consultants : \n");
+        LOGGER.info("\n\nConsultants : ");
         for (var con : consultantsService.getAll()) {
             LOGGER.info(con);
         }
 
-        LOGGER.info("Consultants for clientId = 1 : \n");
+        LOGGER.info("\n\nConsultants for clientId = 1 : ");
         for (var cl : clientsService.getConsultants(1L))
             LOGGER.info(cl);
 
-        LOGGER.info("Clients for consultantId = 2 : \n");
+        LOGGER.info("\n\nClients for consultantId = 2 : ");
         for (var con : consultantsService.getClients(1L))
             LOGGER.info(con);
 
-        var client1 = clientsService.getById(8L);
-        //clientsService.deleteById(8L);
+        var client1 = clientsService.getById(10L);
+        clientsService.deleteById(43L);
 
-        LOGGER.info("Clients : \n");
+        LOGGER.info("\n\nClients : ");
         for (var cl : clientsService.getAll()) {
             LOGGER.info(cl);
         }
 
         clientsService.create(client1);
 
-        LOGGER.info("Clients : \n");
+        LOGGER.info("\n\nClients : ");
         for (var cl : clientsService.getAll()) {
             LOGGER.info(cl);
         }
@@ -78,7 +78,7 @@ public class Main {
 
         clientsService.update(client1);
 
-        LOGGER.info("Clients : \n");
+        LOGGER.info("\n\nClients : ");
         for (var cl : clientsService.getAll()) {
             LOGGER.info(cl);
         }
