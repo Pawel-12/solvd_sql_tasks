@@ -1,0 +1,74 @@
+{
+  "consultants": [
+    {
+      "id": 1,
+      "name": "Mike",
+      "surname": "Jacobs",
+      "phone": "123456789"
+    }
+  ],
+  "clients": [
+    {
+      "id": 1,
+      "name": "Bob",
+      "surname": "Smith",
+      "phone": "123456123",
+      "monthlyIncome": 1000,
+      "totalDebt": 30000
+    }
+  ],
+  "accounts": [
+    {
+      "id": 1,
+      "client": {
+        "id": 1,
+        "name": "Bob",
+        "surname": "Smith",
+        "phone": "123456123",
+        "monthlyIncome": 1000,
+        "totalDebt": 30000
+      },
+      "balance": 5000,
+      "currency": "USD"
+    }
+  ],
+  "cardtypes": [
+    {
+      "id": 1,
+      "name": "Credit card",
+      "limit": 40000,
+      "multicurrency": true,
+      "exchangeFeeRate": 0.045,
+      "creditFeeRate": 0.12
+    }
+  ],
+  "cards": [
+    {
+      "id": 1,
+      "account": {
+        "id": 1,
+        "client": {
+          "id": 1,
+          "name": "Bob",
+          "surname": "Smith",
+          "phone": "123456123",
+          "monthlyIncome": 1000,
+          "totalDebt": 30000
+        },
+        "balance": 5000,
+        "currency": "USD"
+      },
+      "cardType": {
+        "id": 1,
+        "name": "Credit card",
+        "limit": 40000,
+        "multicurrency": true,
+        "exchangeFeeRate": 0.045,
+        "creditFeeRate": 0.12
+      },
+      "cardNumber": "1234567812345678",
+      "blocked": false,
+      "validUntil": "2024-08-12"
+    }
+  ]
+}

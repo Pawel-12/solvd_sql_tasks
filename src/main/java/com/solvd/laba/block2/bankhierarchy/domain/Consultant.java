@@ -12,6 +12,9 @@ public class Consultant {
         this.phone = phone;
     }
 
+    public Consultant() {
+    }
+
     public String getName() {
         return name;
     }

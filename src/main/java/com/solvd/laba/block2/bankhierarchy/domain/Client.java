@@ -16,6 +16,9 @@ public class Client {
         this.totalDebt = totalDebt;
     }
 
+    public Client() {
+    }
+
     public String getName() {
         return name;
     }

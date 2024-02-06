@@ -16,6 +16,9 @@ public class CardType {
         this.creditFeeRate = creditFeeRate;
     }
 
+    public CardType() {
+    }
+
     public String getName() {
         return name;
     }

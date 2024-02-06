@@ -1,5 +1,8 @@
 package com.solvd.laba.block2.bankhierarchy.domain;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import parsing.json.LocalDateDeserialize;
+
 import java.time.LocalDate;
 
 public class Card {
@@ -8,6 +11,8 @@ public class Card {
     private Account account;
     private CardType cardType;
     private Boolean isBlocked;
+
+    @JsonDeserialize(using = LocalDateDeserialize.class)
     private LocalDate validUntil;
 
     public Card(String cardNumber, Account account, CardType cardType, Boolean isBlocked, LocalDate validUntil) {
@@ -16,6 +21,9 @@ public class Card {
         this.cardType = cardType;
         this.isBlocked = isBlocked;
         this.validUntil = validUntil;
+    }
+
+    public Card() {
     }
 
     public String getCardNumber() {

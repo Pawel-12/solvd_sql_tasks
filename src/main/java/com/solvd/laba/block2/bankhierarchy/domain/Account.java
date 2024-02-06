@@ -12,6 +12,9 @@ public class Account {
         this.currency = currency;
     }
 
+    public Account() {
+    }
+
     public Client getClient() {
         return client;
     }
