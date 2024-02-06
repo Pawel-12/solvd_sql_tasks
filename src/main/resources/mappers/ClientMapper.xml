@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.laba.block2.bankhierarchy.persistance.ClientsDao">
+
+    <insert id="create" keyProperty="id" keyColumn="id" useGeneratedKeys="true"
+            parameterType="com.solvd.laba.block2.bankhierarchy.domain.Client">
+        INSERT INTO Clients(name, surname, phone, monthlyIncome, totalDebt)
+        VALUES (#{name}, #{surname}, #{phone}, #{monthlyIncome}, #{totalDebt})
+    </insert>
+
+    <select id="getById" resultMap="ClientResultMap">
+        SELECT * FROM Clients WHERE idClients = #{id}
+    </select>
+
+    <select id="getAll" resultMap="ClientResultMap">
+        SELECT * FROM Clients
+    </select>
+
+    <update id="updateById">
+        UPDATE Clients(name, surname, phone, monthlyIncome, totalDebt) SET name = #{data.name}, surname =
+        #{data.surname}, phone = #{data.phone}, monthlyIncome = #{data.monthlyIncome}, totalDebt = #{data.totalDebt}
+        WHERE idClients = #{id}
+    </update>
+
+    <delete id="deleteById">
+        DELETE FROM Clients WHERE idClients = #{id}
+    </delete>
+
+    <resultMap id="ClientResultMap" type="com.solvd.laba.block2.bankhierarchy.domain.Client" autoMapping="false">
+        <id property="id" column="idClients"/>
+        <result property="name" column="name"/>
+        <result property="surname" column="surname"/>
+        <result property="phone" column="phone"/>
+        <result property="monthlyIncome" column="monthlyIncome"/>
+        <result property="totalDebt" column="totalDebt"/>
+    </resultMap>
+</mapper>

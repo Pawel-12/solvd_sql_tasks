@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.laba.block2.bankhierarchy.persistance.CardTypeDao">
+
+    <insert id="create" keyProperty="id" keyColumn="id" useGeneratedKeys="true">
+        INSERT INTO CardType(name,limit,multicurrency,exchangeFeeRate,creditFeeRate)
+        VALUES (#{name}, #{limit}, #{multicurrency}, #{exchangeFeeRate}, #{creditFeeRate})
+    </insert>
+
+    <select id="getById" resultMap="CardTypeResultMap">
+        SELECT * FROM CardType WHERE idCardType = #{id}
+    </select>
+
+    <select id="getAll" resultMap="CardTypeResultMap">
+        SELECT * FROM CardType
+    </select>
+
+    <update id="update">
+        UPDATE CardType SET
+        name = #{name}, limit = #{limit}, multicurrency = #{multicurrency},
+        exchangeFeeRate = #{exchangeFeeRate}, creditFeeRate = #{creditFeeRate} WHERE idCardType = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM CardType WHERE idCardType = #{id}
+    </delete>
+
+    <resultMap id="CardTypeResultMap" type="com.solvd.laba.block2.bankhierarchy.domain.CardType" autoMapping="false">
+        <id property="id" column="idCardType"/>
+        <result property="name" column="name"/>
+        <result property="limit" column="limit"/>
+        <result property="multicurrency" column="multicurrency"/>
+        <result property="exchangeFeeRate" column="exchangeFeeRate"/>
+        <result property="creditFeeRate" column="creditFeeRate"/>
+    </resultMap>
+</mapper>

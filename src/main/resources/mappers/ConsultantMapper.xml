@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.laba.block2.bankhierarchy.persistance.ConsultantsDao">
+
+    <insert id="create" keyProperty="id" keyColumn="id" useGeneratedKeys="true">
+        INSERT INTO Consultants(name, surname, phone)
+        VALUES (#{name}, #{surname}, #{phone})
+    </insert>
+
+    <select id="getById" resultMap="ConsultantResultMap">
+        SELECT * FROM Consultants WHERE idConsultant = #{id}
+    </select>
+
+    <select id="getAll" resultMap="ConsultantResultMap">
+        SELECT * FROM Consultants
+    </select>
+
+    <update id="update">
+        UPDATE Consultants SET
+        name = #{name}, surname = #{surname}, phone = #{phone},
+        WHERE idConsultant = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM Consultants WHERE idConsultant = #{id}
+    </delete>
+
+    <resultMap id="ConsultantResultMap" type="com.solvd.laba.block2.bankhierarchy.domain.Consultant"
+               autoMapping="false">
+        <id property="id" column="idConsultant"/>
+        <result property="name" column="name"/>
+        <result property="surname" column="surname"/>
+        <result property="phone" column="phone"/>
+    </resultMap>
+</mapper>

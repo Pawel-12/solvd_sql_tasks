@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.solvd.laba.block2.bankhierarchy.persistance.ClientsHasConsultantsDao">
+
+    <insert id="create" keyProperty="id" keyColumn="id" useGeneratedKeys="true">
+        INSERT INTO Clients_has_Consultants
+        VALUES (#{idClients}, #{idConsultant}, #{phone})
+    </insert>
+
+    <select id="getConsultantsForId" resultMap="ClientsIdListResultMap">
+        SELECT * FROM Clients_has_Consultants WHERE Clients_idClients = #{idClient}
+    </select>
+
+    <select id="getClientsForId" resultMap="ConsultantsIdListResultMap">
+        SELECT * FROM Clients_has_Consultants WHERE Consultants_idConsultant = #{idConsultant}
+    </select>
+
+    <select id="getAll" resultMap="ClientsHasConsultantsResultMap">
+        SELECT * FROM Clients_has_Consultants
+    </select>
+
+    <delete id="delete">
+        DELETE FROM Clients_has_Consultants WHERE Clients_idClients = #{idClient} AND Consultants_idConsultant =
+        #{idConsultant}
+    </delete>
+
+    <resultMap id="ClientsHasConsultantsResultMap" type="org.apache.commons.lang3.tuple.MutablePair">
+        <constructor>
+            <arg column="Clients_idClients"/>
+            <arg column="Consultants_idConsultant"/>
+        </constructor>
+    </resultMap>
+
+    <resultMap id="ConsultantsIdListResultMap" type="java.lang.Long">
+        <id column="Clients_idClients"/>
+        <result property="idConsultant" column="Consultants_idConsultant"/>
+    </resultMap>
+
+    <resultMap id="ClientsIdListResultMap" type="java.lang.Long">
+        <id column="Consultants_idConsultant"/>
+        <result property="idClient" column="Clients_idClients"/>
+    </resultMap>
+</mapper>

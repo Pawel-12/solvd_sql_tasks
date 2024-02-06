@@ -1,6 +1,7 @@
 package com.solvd.laba.block2.bankhierarchy.persistance;
 
 import com.solvd.laba.block2.bankhierarchy.ConnectionPool;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ public interface CrudOperations<T> {
 
     public List<T> getAll();
 
-    public Long updateById(Long id, T data);
+    public Long updateById(@Param("id") Long id, @Param("data") T data);
 
     public Long update(T data);
 
