@@ -1,0 +1,69 @@
+<bank>
+    <consultants>
+        <consultant id="1">
+            <name>Mike</name>
+            <surname>Jacobs</surname>
+            <phone>123456789</phone>
+        </consultant>
+    </consultants>
+
+    <clients>
+        <client id="1">
+            <name>Bob</name>
+            <surname>Smith</surname>
+            <phone>123456123</phone>
+            <monthlyIncome>1000</monthlyIncome>
+            <totalDebt>30000</totalDebt>
+        </client>
+    </clients>
+
+    <accounts>
+        <account id="1">
+            <client id="1">
+                <name>Bob</name>
+                <surname>Smith</surname>
+                <phone>123456123</phone>
+                <monthlyIncome>1000</monthlyIncome>
+                <totalDebt>30000</totalDebt>
+            </client>
+            <balance>5000</balance>
+            <currency>USD</currency>
+        </account>
+    </accounts>
+
+    <cardtypes>
+        <cardtype id="1">
+            <name>Credit card</name>
+            <limit>40000</limit>
+            <multicurrency>true</multicurrency>
+            <exchangeFeeRate>0.045</exchangeFeeRate>
+            <creditFeeRate>0.12</creditFeeRate>
+        </cardtype>
+    </cardtypes>
+
+    <cards>
+        <card id="1">
+            <account id="1">
+                <client id="1">
+                    <name>Bob</name>
+                    <surname>Smith</surname>
+                    <phone>123456123</phone>
+                    <monthlyIncome>1000</monthlyIncome>
+                    <totalDebt>30000</totalDebt>
+                </client>
+                <balance>5000</balance>
+                <currency>USD</currency>
+            </account>
+            <cardtype id="1">
+                <name>Credit card</name>
+                <limit>40000</limit>
+                <multicurrency>true</multicurrency>
+                <exchangeFeeRate>0.045</exchangeFeeRate>
+                <creditFeeRate>0.12</creditFeeRate>
+            </cardtype>
+            <cardNumber>1234567812345678</cardNumber>
+            <isBlocked>false</isBlocked>
+            <validUntil>2024-08-12</validUntil>
+        </card>
+    </cards>
+</bank>

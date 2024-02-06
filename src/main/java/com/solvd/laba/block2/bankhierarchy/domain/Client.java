@@ -1,6 +1,12 @@
 package com.solvd.laba.block2.bankhierarchy.domain;
 
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAttribute;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Client {
+    @XmlAttribute(name = "id")
     private Long id = null;
     private String name;
     private String surname;

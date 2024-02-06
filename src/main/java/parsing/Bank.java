@@ -1,16 +1,33 @@
-package parsing.json;
+package parsing;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.solvd.laba.block2.bankhierarchy.domain.*;
+import jakarta.xml.bind.annotation.*;
 
 import java.util.List;
 
+@XmlRootElement(name = "bank")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Bank {
+    @XmlElementWrapper(name = "consultants")
+    @XmlElement(name = "consultant")
     private List<Consultant> consultants;
+
+    @XmlElementWrapper(name = "clients")
+    @XmlElement(name = "client")
     private List<Client> clients;
+
+    @XmlElementWrapper(name = "accounts")
+    @XmlElement(name = "account")
     private List<Account> accounts;
+
+    @XmlElementWrapper(name = "cardtypes")
+    @XmlElement(name = "cardtype")
     @JsonProperty("cardtypes")
     private List<CardType> cardTypes;
+
+    @XmlElementWrapper(name = "cards")
+    @XmlElement(name = "card")
     private List<Card> cards;
 
     public Bank() {

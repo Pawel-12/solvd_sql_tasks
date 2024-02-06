@@ -1,6 +1,12 @@
 package com.solvd.laba.block2.bankhierarchy.domain;
 
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAttribute;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Account {
+    @XmlAttribute(name = "id")
     private Long id = null;
     private Client client;
     private Long balance;
@@ -45,5 +51,15 @@ public class Account {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", client=" + client +
+                ", balance=" + balance +
+                ", currency='" + currency + '\'' +
+                '}';
     }
 }
