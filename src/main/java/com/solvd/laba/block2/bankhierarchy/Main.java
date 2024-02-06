@@ -1,11 +1,9 @@
 package com.solvd.laba.block2.bankhierarchy;
 
-import com.solvd.laba.block2.bankhierarchy.persistance.impl.CardTypeDaoImpl;
-import com.solvd.laba.block2.bankhierarchy.persistance.impl.ClientsDaoImpl;
-import com.solvd.laba.block2.bankhierarchy.persistance.impl.ConsultantsDaoImpl;
 import com.solvd.laba.block2.bankhierarchy.service.impl.CardTypeServiceImpl;
 import com.solvd.laba.block2.bankhierarchy.service.impl.ClientsServiceImpl;
 import com.solvd.laba.block2.bankhierarchy.service.impl.ConsultantsServiceImpl;
+import com.solvd.laba.block2.bankhierarchy.util.ServiceFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -18,9 +16,9 @@ public class Main {
 
     public static void main(String[] args) {
         ConnectionPool dbPool = ConnectionPool.createInstance(5);
-        CardTypeServiceImpl cardTypeService = CardTypeServiceImpl.getInstance(CardTypeDaoImpl.INSTANCE);
-        ClientsServiceImpl clientsService = ClientsServiceImpl.getInstance(ClientsDaoImpl.INSTANCE);
-        ConsultantsServiceImpl consultantsService = ConsultantsServiceImpl.getInstance(ConsultantsDaoImpl.INSTANCE);
+        CardTypeServiceImpl cardTypeService = ServiceFactory.createCardTypeService();
+        ClientsServiceImpl clientsService = ServiceFactory.createClientsService();
+        ConsultantsServiceImpl consultantsService = ServiceFactory.createConsultantsService();
 
 
         LOGGER.info("CardTypes : \n");
