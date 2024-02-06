@@ -77,10 +77,10 @@ public class Bank {
     public String toString() {
         return "Bank{" +
                 "consultants=" + consultants +
-                ", clients=" + clients +
-                ", accounts=" + accounts +
-                ", cardTypes=" + cardTypes +
-                ", cards=" + cards +
+                "\n, clients=" + clients +
+                "\n, accounts=" + accounts +
+                "\n, cardTypes=" + cardTypes +
+                "\n, cards=" + cards +
                 '}';
     }
 }

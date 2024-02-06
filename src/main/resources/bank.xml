@@ -1,4 +1,5 @@
-<bank>
+<bank xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="bank.xsd">
     <consultants>
         <consultant id="1">
             <name>Mike</name>
